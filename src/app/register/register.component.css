@@ -1,0 +1,21 @@
+div.container{
+    margin: 0px 98px;
+    padding:0px 15px;
+}
+label.control-label{
+    padding:0px 0px 7px;
+}
+input.form-control{
+    margin: 0px 0px 8px;
+    padding:0px 0px 7px;
+}
+div.form-group.form-check{
+    margin: 0px 0px 8px;
+}
+a{
+text-decoration: none;
+cursor: pointer;
+}
+div.form-group.submit{
+    margin: 0px 0px 8px;
+}

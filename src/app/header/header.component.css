@@ -1,0 +1,12 @@
+.navbar-brand{
+    font-weight: bold;
+    margin-left: 2px 0px;
+}
+.cart-bk {
+    background: url('D:/Training3/eKart2/EKart/EKart/wwwroot/Images/download.png');
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    position: relative;
+}
+

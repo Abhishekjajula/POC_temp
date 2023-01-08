@@ -1,0 +1,72 @@
+<br />
+<div class="container">
+  <h4>Login</h4>
+  <hr />
+  <small class="text-danger" *ngIf="errorMsg"
+            >{{errorMsg}}</small
+          >
+  <div class="row">
+    <div class="col-md-4">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm" >
+        <div class="form-group">
+          <label class="control-label">Email ID</label>
+          <input
+            name="EmailId"
+            type="text"
+            minlength="5"
+            maxlength="30"
+            class="form-control"
+            #emailid="ngModel"
+            required
+            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            [(ngModel)]="loginModel.emailId"
+            class="form-control"
+          />
+          <small class="text-danger" *ngIf="emailid?.errors?.['required']"
+            >Email ID is required</small
+          >
+          <small class="text-danger" *ngIf="emailid?.errors?.['maxlength']">Email ID Cannot Be More Than 30 Characters </small>
+          <small class="text-danger" *ngIf="emailid?.errors?.['minlength']">Email ID Cannot Be Less Than 6 Characters </small>
+          <small class="text-danger" *ngIf="emailid?.errors?.['pattern']">Please Enter A Valid Email</small>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Password</label>
+          <input
+            name="Password"
+            type="Password"
+            minlength="6"
+            maxlength="30"
+            class="form-control"
+            #password="ngModel"
+            required
+            [(ngModel)]="loginModel.password"
+            class="form-control"
+          />
+          <small class="text-danger" *ngIf="password?.errors?.['maxlength']">Password Cannot Be More Than 30 Characters</small>
+          <small class="text-danger" *ngIf="password?.errors?.['minlength']">Password Cannot Be Less Than 6 Characters</small>
+          <small class="text-danger" *ngIf="password?.errors?.['required']"
+            >Password is required</small
+          >
+        </div>
+        <div class="form-group form-check">
+          <label class="form-check-label">
+            Remember Me<input
+              class="form-check-input"
+              name="rememberMe"
+              type="boolean"
+              #rememberMe="ngModel"
+              
+              [(ngModel)]="loginModel.rememberMe"
+              type="checkbox"
+            />
+          </label>
+        </div>
+        <div class="form-group submit">
+          <input type="submit" value="Login" [disabled]="userForm.form.invalid " class="btn btn-outline-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <p>New User?<a routerLink="/registercomponent" class="card-link"> Sign Up</a></p>
+</div>

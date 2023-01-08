@@ -1,0 +1,138 @@
+<br/>
+<h3>OrderDetails</h3>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+            <div class="card">
+                <div class="card-header bg-primary">
+                    <label class="card-text">Order Details</label>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="orderId" class="font-weight-bold">Order ID :</label>
+                            <span id="orderId" class="card-text">{{orderData.orderId}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="orderDate" class="font-weight-bold">Order Date :</label>
+                            <span id="orderDate" class="card-text">{{orderData.orderDate|date:'dd MMMM YYYY'}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="orderAmount" class="font-weight-bold">Order Amount :</label>
+                            <span class="inr-sign"></span>
+                            <span id="orderAmount" class="card-text">{{orderData.orderAmount}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card">
+                <div class="card-header  bg-warning">
+                    <label class="card-text">Customer Details</label>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="customerName" class="font-weight-bold">Customer Name :</label>
+                            <span id="customerName" class="card-text">{{orderData.customer.customerName}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="customerMobileNo" class="font-weight-bold">Mobile Number :</label>
+                            <span id="customerMobileNo" class="card-text">{{orderData.customer.customerMobileNo}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="emailID" class="font-weight-bold">Email ID :</label>
+                            <span id="emailID" class="card-text">{{orderData.customer.emailID}}</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-12">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <label class="card-text ">Address Details</label>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="stName2" class="font-weight-bold">Street Name:</label>
+                            <span id="stName2" class="card-text">{{orderData.customer.customerAddress.stName}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="city" class="font-weight-bold">City :</label>
+                            <span id="city" class="card-text">{{orderData.customer.customerAddress.city}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="state" class="font-weight-bold">State :</label>
+                            <span id="state" class="card-text">{{orderData.customer.customerAddress.state}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card my-3" >
+            <div class="card-header  bg-success">
+                <label class="card-text">
+                    Order Item Info
+                </label>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table" width="100%" >
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let order of orderData.orderItems">
+                           
+                                <tr>
+                                    <td>{{order.productName}}</td>
+                                    <td>{{order.price}}</td>
+                                    <td>{{order.qty}}</td>
+                                    <td>{{order.price}}</td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="d-flex justify-content-end">
+                    <div class="font-weight-bold">Order Total :</div>
+                    <span class="inr-sign"></span>
+                    <div class="font-weight-bold">{{orderData.orderAmount}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<span *ngIf="orderData.orderStatus.orderStatusId===1001">
+    <button type="button" (click)="addToDelivery(orderData.orderId)"class="btn btn-outline-primary" >Add to Delivery</button>
+</span>
+<span type="button" (click)="backToDelivery()"class="btn btn-outline-dark" >Back to Delivery</span>
+

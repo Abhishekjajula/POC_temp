@@ -1,0 +1,127 @@
+<div class="container">
+  <h4>Register</h4>
+  <hr />
+  <div class="row">
+    <div class="col-md-4">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <div class="form-group">
+          <label class="control-label">EmailId</label>
+          <input
+            name="EmailId"
+            type="text"
+            class="form-control"
+            #emailid="ngModel"
+            minlength="5"
+            maxlength="30"
+            id="EmailId"
+            pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+            required
+            [(ngModel)]="registerModel.emailId"
+          />
+          <small class="text-danger" *ngIf="emailid?.errors?.['required']"
+            >EmailID is required</small
+          >
+          <small class="text-danger" *ngIf="emailid?.errors?.['maxlength']">Email ID Cannot Be More Than 30 Characters. </small>
+          <small class="text-danger" *ngIf="emailid?.errors?.['minlength']">Email ID Cannot Be Less Than 6 Characters </small>
+          <small class="text-danger" *ngIf="emailid?.errors?.['pattern']"
+            >Enter a valid Email</small
+          >
+        </div>
+        <div class="form-group">
+          <label class="control-label">Password</label>
+          <input
+            type="Password"
+            name="Password"
+            id="Password"
+            minlength="6"
+            maxlength="30"
+            #password="ngModel"
+            [(ngModel)]="registerModel.password"
+            required
+            class="form-control"
+          />
+          <small class="text-danger" *ngIf="password?.errors?.['required']"
+            >Password is required</small
+          > <small class="text-danger" *ngIf="password?.errors?.['maxlength']">Password Cannot Be More Than 30 Characters.</small>
+          <small class="text-danger" *ngIf="password?.errors?.['minlength']">Password Cannot Be Less Than 6 Characters </small>
+
+        </div>
+        <div class="form-group">
+          <label class="control-label">Confirm Password</label>
+          <input
+            type="Password"
+            id="ConfirmPassword"
+            name="ConfirmPassword"
+            #confirmPassword="ngModel"
+            minlength="6"
+            maxlength="30"
+            required
+            class="form-control"
+            [(ngModel)]="registerModel.confirmPassword"
+          />
+          <small class="text-danger" *ngIf="confirmPassword?.errors?.['maxlength']">Confirm Password Cannot Be More Than 30 Characters. </small>
+          <small class="text-danger" *ngIf="confirmPassword?.errors?.['minlength']">Confirm Password Cannot Be Less Than 3 Characters </small>
+          <small class="text-danger" *ngIf="errorMsg">{{ errorMsg }}</small>
+          <!-- <small class="text-danger" *ngIf="error">{{ error }}</small> -->
+          <small
+            class="text-danger"
+            *ngIf="confirmPassword?.errors?.['required']"
+            >Confirm Password is required</small
+          >
+        </div>
+        <div class="form-group">
+          <label class="control-label">City</label>
+          <input
+            id="City"
+            name="City"
+            minlength="3"
+            maxlength="50"
+            #city="ngModel"
+            pattern="^[a-zA-Z+_.-]+$"
+            required
+            class="form-control"
+            [(ngModel)]="registerModel.city"
+          />
+          <small class="text-danger" *ngIf="city?.errors?.['maxlength']">City Cannot Be More Than 50 Characters. </small>
+          <small class="text-danger" *ngIf="city?.errors?.['minlength']">City Cannot Be Less Than 3 Characters </small>
+          <small class="text-danger" *ngIf="city?.errors?.['required']"
+            >City is required</small
+          >
+          <small class="text-danger" *ngIf="city?.errors?.['pattern']"
+            >Please enter valid text</small
+          >
+        </div>
+        <div class="form-group">
+          <label class="control-label">State</label>
+          <input
+            id="State"
+            name="State"
+            minlength="6"
+            maxlength="50"
+            #state="ngModel"
+            required
+            [(ngModel)]="registerModel.state"
+            pattern="^[a-zA-Z+_.-]+$"
+            class="form-control"
+          />
+          <small class="text-danger" *ngIf="state?.errors?.['required']"
+            >State is required</small
+          >
+          <small class="text-danger" *ngIf="state?.errors?.['maxlength']">State Cannot Be More Than 50 Characters. </small>
+          <small class="text-danger" *ngIf="state?.errors?.['minlength']">State Cannot Be Less Than 3 Characters </small>
+          <small class="text-danger" *ngIf="state?.errors?.['pattern']"
+            >Please enter valid text</small
+          >
+        </div>
+        <div class="form-group">
+          <input
+            type="submit"
+            [disabled]="userForm.form.invalid "
+            value="Register"
+            class="btn btn-primary"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
