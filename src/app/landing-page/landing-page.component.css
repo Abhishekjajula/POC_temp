@@ -6,7 +6,8 @@
 .container {
     height: 100vh;
     width: 100%;
-    background-image: url(D:\POC-FrontEnd\eKartFrontEnd\src\assets\UI.jpg);
+   background-image: url(https://www.google.com/imgres?imgurl=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1526367790999-0150786686a2%3Fixlib%3Drb-4.0.3%26ixid%3DMnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGRlbGl2ZXJ5fGVufDB8fDB8fA%253D%253D%26w%3D1000%26q%3D80&imgrefurl=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fdelivery&tbnid=dfl9q8Psm6xREM&vet=12ahUKEwiH9qbc1Lj8AhVm73MBHRiuBBsQMygKegUIARDXAQ..i&docid=lorZS2ZUoJaIAM&w=1000&h=667&q=delivery%20wallpaper%20hd&ved=2ahUKEwiH9qbc1Lj8AhVm73MBHRiuBBsQMygKegUIARDXAQ);
+/*     background-image: url(D:\POC-FrontEnd\eKartFrontEnd\src\assets\UI.jpg); */
     background-position: right;
     background-size:cover;
     padding-right: 6%;
